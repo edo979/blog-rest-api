@@ -1,4 +1,4 @@
-import { Form, Link, useLoaderData, useNavigate } from 'react-router-dom'
+import { Form, useLoaderData, useNavigate } from 'react-router-dom'
 import { getPosts, Post } from '../model/posts'
 
 export async function loader() {
@@ -38,6 +38,7 @@ export function Blogs() {
                 <h2 className="card-title">{title}</h2>
                 <p className="card-text">Con</p>
               </div>
+
               <div className="card-footer d-flex justify-content-end">
                 <Form
                   method="delete"
