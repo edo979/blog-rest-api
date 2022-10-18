@@ -1,11 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {
-  Blog,
-  loader as postsLoader,
-  action as postsAction,
-} from './routes/Blog'
+import { Blog, loader as postsLoader } from './routes/Blog'
+import { BlogNew, action as newBlogAction } from './routes/BlogNew'
 import { ErrorPage } from './routes/ErrorPage'
 import { Home } from './routes/Home'
 import { Root } from './routes/Root'
@@ -19,10 +16,11 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: '/blog',
-        element: <Blog />,
-        loader: postsLoader,
-        action: postsAction,
         errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Blog />, loader: postsLoader },
+          { path: 'new', element: <BlogNew />, action: newBlogAction },
+        ],
       },
     ],
   },

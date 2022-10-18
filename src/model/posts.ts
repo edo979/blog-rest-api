@@ -11,7 +11,6 @@ export async function getPosts() {
   const response = await fetch(`${url}/posts`)
   const resData: Post[] = await response.json()
 
-  console.log(resData)
   return resData
 }
 
