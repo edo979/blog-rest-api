@@ -14,14 +14,19 @@ export async function getPosts() {
   return resData
 }
 
-export async function createPosts(data: { title: string }) {
+export async function createPosts(data: {
+  title: string
+  body: string
+  author: string
+}): Promise<Post> {
   const id = Math.random().toString(36).substring(2, 9)
-  const post = {
-    id,
-    createdAt: Date.now(),
-    title: data.title,
-    author: 'Me Atme',
-  }
+  const post = Object.assign(
+    {
+      id,
+      createdAt: Date.now(),
+    },
+    data
+  )
 
   const response = await fetch(`${url}/posts`, {
     method: 'POST',
