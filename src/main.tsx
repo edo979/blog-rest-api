@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Blog, loader as postsLoader } from './routes/Blog'
-import { BlogNew, action as newBlogAction } from './routes/BlogNew'
 import { ErrorPage } from './routes/ErrorPage'
+import { Blog } from './routes/Blog'
+import { action as destroyAction } from './routes/BlogDestroyPost'
+import { BlogNew, action as newBlogAction } from './routes/BlogNew'
+import { Blogs, loader as postsLoader } from './routes/Blogs'
 import { Home } from './routes/Home'
 import { Root } from './routes/Root'
 import './scss/style.scss'
@@ -12,14 +14,24 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
       {
         path: '/blog',
-        errorElement: <ErrorPage />,
         children: [
-          { index: true, element: <Blog />, loader: postsLoader },
-          { path: 'new', element: <BlogNew />, action: newBlogAction },
+          {
+            errorElement: <ErrorPage />,
+            children: [
+              { index: true, element: <Blogs />, loader: postsLoader },
+              { path: 'new', element: <BlogNew />, action: newBlogAction },
+              { path: ':postId', element: <Blog /> },
+              {
+                path: ':postId/destroy',
+                action: destroyAction,
+              },
+            ],
+          },
         ],
       },
     ],

@@ -39,3 +39,17 @@ export async function createPosts(data: {
   const resData = await response.json()
   return resData
 }
+
+export async function deletePost(id: string) {
+  const response = await fetch(`${url}/posts/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
+
+  if (!response.ok) throw new Error("Can't delete post")
+
+  const resData = await 'Resource Deleted'
+  return resData
+}

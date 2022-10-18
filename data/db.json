@@ -5,20 +5,6 @@
       "title": "Json Server",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita assumenda necessitatibus a nulla. Doloremque voluptatum aliquid quae ad tempore eaque aperiam aliquam aut dignissimos. Ut alias, illo ullam iure amet dicta totam illum deserunt tempora laboriosam repellat. Ipsum, rem laudantium!",
       "author": "Me Atme"
-    },
-    {
-      "id": "da3hfzv",
-      "createdAt": 1666117054665,
-      "title": "New blog post",
-      "body": "Lorem ipsum nešto nešto.. i neštoo.",
-      "author": "Edi Medi"
-    },
-    {
-      "id": "es8ojh1",
-      "createdAt": 1666117163351,
-      "title": "ddd",
-      "body": "fff",
-      "author": "aaa"
     }
   ]
 }
