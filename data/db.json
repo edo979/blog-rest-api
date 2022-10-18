@@ -1,3 +1,15 @@
 {
-  "posts": [{ "id": 1, "title": "Json Server", "author": "Me Atme" }]
+  "posts": [
+    {
+      "id": 1,
+      "title": "Json Server",
+      "author": "Me Atme"
+    },
+    {
+      "id": "defzel7",
+      "createdAt": 1666113141332,
+      "title": "New post",
+      "author": "Me Atme"
+    }
+  ]
 }

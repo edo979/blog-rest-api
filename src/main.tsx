@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Blog, loader as postsLoader } from './routes/Blog'
+import {
+  Blog,
+  loader as postsLoader,
+  action as postsAction,
+} from './routes/Blog'
 import { ErrorPage } from './routes/ErrorPage'
 import { Home } from './routes/Home'
 import { Root } from './routes/Root'
@@ -17,6 +21,7 @@ const router = createBrowserRouter([
         path: '/blog',
         element: <Blog />,
         loader: postsLoader,
+        action: postsAction,
         errorElement: <ErrorPage />,
       },
     ],

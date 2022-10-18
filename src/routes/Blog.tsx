@@ -1,10 +1,14 @@
-import { useLoaderData } from 'react-router-dom'
-import { getPosts, Post } from '../model/posts'
+import { Form, useLoaderData } from 'react-router-dom'
+import { createPosts, getPosts, Post } from '../model/posts'
 
 export async function loader() {
   const posts = await getPosts()
   console.log(posts)
   return { posts }
+}
+
+export async function action() {
+  await createPosts({ title: 'New post' })
 }
 
 export function Blog() {
@@ -14,11 +18,19 @@ export function Blog() {
 
   return (
     <div className="container">
-      <div className="row mb-4">
+      <div className="row">
         <h1>Blog</h1>
       </div>
 
-      <section className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row">
+        <Form className="col" method="post">
+          <button className="btn btn-primary" type="submit">
+            New
+          </button>
+        </Form>
+      </div>
+
+      <section className="row row-cols-1 row-cols-md-3 g-4 mt-4">
         {posts.map(({ id, title }) => (
           <div key={id} className="col">
             <div className="card">
