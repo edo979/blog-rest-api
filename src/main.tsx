@@ -9,6 +9,7 @@ import { Blogs, loader as postsLoader } from './routes/Blogs'
 import { Home } from './routes/Home'
 import { Root } from './routes/Root'
 import './scss/style.scss'
+import { BlogEdit } from './routes/BlogEdit'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
               { index: true, element: <Blogs />, loader: postsLoader },
               { path: 'new', element: <BlogNew />, action: newBlogAction },
               { path: ':postId', element: <Blog /> },
+              { path: ':postId/edit', element: <BlogEdit /> },
               {
                 path: ':postId/destroy',
                 action: destroyAction,

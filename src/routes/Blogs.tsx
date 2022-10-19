@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useNavigate } from 'react-router-dom'
+import { Form, Link, useLoaderData, useNavigate } from 'react-router-dom'
 import { getPosts, Post } from '../model/posts'
 
 export async function loader() {
@@ -40,6 +40,10 @@ export function Blogs() {
               </div>
 
               <div className="card-footer d-flex justify-content-end">
+                <Link to={`${id}/edit`} className="btn btn-primary">
+                  Edit
+                </Link>
+
                 <Form
                   method="delete"
                   action={`/blog/${id}/destroy`}
@@ -51,7 +55,7 @@ export function Blogs() {
                     }
                   }}
                 >
-                  <button className="btn btn-danger" type="submit">
+                  <button className="btn btn-danger ms-2" type="submit">
                     Delete
                   </button>
                 </Form>

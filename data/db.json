@@ -5,6 +5,13 @@
       "title": "Json Server",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita assumenda necessitatibus a nulla. Doloremque voluptatum aliquid quae ad tempore eaque aperiam aliquam aut dignissimos. Ut alias, illo ullam iure amet dicta totam illum deserunt tempora laboriosam repellat. Ipsum, rem laudantium!",
       "author": "Me Atme"
+    },
+    {
+      "id": "l87megi",
+      "createdAt": 1666173091947,
+      "title": "New Post ",
+      "body": "some Text",
+      "author": "Me Atme"
     }
   ]
 }
