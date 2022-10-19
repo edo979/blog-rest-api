@@ -1,6 +1,17 @@
-import { Form, Params } from 'react-router-dom'
+import { Form, Params, useLoaderData } from 'react-router-dom'
+import { getPost, Post } from '../model/posts'
+
+export async function loader({ params }: { params: Params }) {
+  const postId = params.postId
+  if (postId == undefined) throw new Error('Not valid post parametar')
+
+  const post = await getPost(postId)
+  return { post }
+}
 
 export function BlogEdit() {
+  const post = useLoaderData() as Post
+
   return (
     <>
       <div className="row">
@@ -13,7 +24,12 @@ export function BlogEdit() {
             Title
           </label>
           <div className="col-sm-10">
-            <input className="form-control" type="text" name="title" />
+            <input
+              className="form-control"
+              type="text"
+              name="title"
+              defaultValue={post.title}
+            />
           </div>
         </div>
 
@@ -22,7 +38,12 @@ export function BlogEdit() {
             Post
           </label>
           <div className="col-sm-10">
-            <textarea className="form-control" rows={5} name="body" />
+            <textarea
+              className="form-control"
+              rows={5}
+              name="body"
+              defaultValue={post.body}
+            />
           </div>
         </div>
 
@@ -31,13 +52,18 @@ export function BlogEdit() {
             Author
           </label>
           <div className="col-sm-10">
-            <input className="form-control" type="text" name="author" />
+            <input
+              className="form-control"
+              type="text"
+              name="author"
+              defaultValue={post.author}
+            />
           </div>
         </div>
 
         <div className="row mt-3">
           <button className="btn btn-primary" type="submit">
-            Create
+            Save
           </button>
         </div>
       </Form>

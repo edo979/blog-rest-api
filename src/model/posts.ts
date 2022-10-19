@@ -2,6 +2,7 @@ export type Post = {
   id: string
   createdAt?: string
   title: string
+  body: string
   author: string
 }
 
@@ -11,6 +12,15 @@ export async function getPosts() {
   const response = await fetch(`${url}/posts`)
   const resData: Post[] = await response.json()
 
+  return resData
+}
+
+export async function getPost(id: string) {
+  const response = await fetch(`${url}/posts/${id}`)
+
+  if (!response.ok) throw new Error('Cant find that post')
+
+  const resData: Post = await response.json()
   return resData
 }
 
