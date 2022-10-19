@@ -31,34 +31,42 @@ export function Blogs() {
       </div>
 
       <section className="row row-cols-1 row-cols-md-3 g-4 mt-4">
-        {posts.map(({ id, title }) => (
+        {posts.map(({ id, title, body, author }) => (
           <div key={id} className="col">
             <div className="card h-100">
               <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                <p className="card-text">Con</p>
+                <p className="card-text">
+                  {body.length > 60 ? body.substring(0, 60) + '...' : body}
+                </p>
               </div>
 
-              <div className="card-footer d-flex justify-content-end">
-                <Link to={`${id}/edit`} className="btn btn-primary">
-                  Edit
-                </Link>
+              <div className="card-footer">
+                <p>
+                  <span className="fw-bold">Author: </span>{' '}
+                  <span>{author}</span>
+                </p>
+                <div className="hstack justify-content-end border-top pt-2">
+                  <Link to={`${id}/edit`} className="btn btn-primary">
+                    Edit
+                  </Link>
 
-                <Form
-                  method="delete"
-                  action={`/blog/${id}/destroy`}
-                  onSubmit={(e) => {
-                    if (
-                      !confirm('Please confirm you want to delete this post?')
-                    ) {
-                      e.preventDefault()
-                    }
-                  }}
-                >
-                  <button className="btn btn-danger ms-2" type="submit">
-                    Delete
-                  </button>
-                </Form>
+                  <Form
+                    method="delete"
+                    action={`/blog/${id}/destroy`}
+                    onSubmit={(e) => {
+                      if (
+                        !confirm('Please confirm you want to delete this post?')
+                      ) {
+                        e.preventDefault()
+                      }
+                    }}
+                  >
+                    <button className="btn btn-danger ms-2" type="submit">
+                      Delete
+                    </button>
+                  </Form>
+                </div>
               </div>
             </div>
           </div>
