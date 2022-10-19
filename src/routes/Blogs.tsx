@@ -1,4 +1,10 @@
-import { Form, Link, useLoaderData, useNavigate } from 'react-router-dom'
+import {
+  Form,
+  Link,
+  useLoaderData,
+  useNavigate,
+  useNavigation,
+} from 'react-router-dom'
 import { getPosts, Post } from '../model/posts'
 
 export async function loader() {
@@ -9,6 +15,7 @@ export async function loader() {
 export function Blogs() {
   const { posts } = useLoaderData() as { posts: Post[] }
   const navigate = useNavigate()
+  const navigation = useNavigation()
 
   if (!posts) return null
 
@@ -30,7 +37,11 @@ export function Blogs() {
         </div>
       </div>
 
-      <section className="row row-cols-1 row-cols-md-3 g-4 mt-4">
+      <section
+        className={`row row-cols-1 row-cols-md-3 g-4 mt-4 ${
+          navigation.state === 'loading' && 'opacity-50'
+        }`}
+      >
         {posts.map(({ id, title, body, author }) => (
           <div key={id} className="col">
             <div className="card h-100">

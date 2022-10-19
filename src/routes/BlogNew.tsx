@@ -1,4 +1,4 @@
-import { Form, redirect } from 'react-router-dom'
+import { Form, redirect, useNavigate, useNavigation } from 'react-router-dom'
 import { createPosts } from '../model/posts'
 
 export async function action({ request }: { request: Request }) {
@@ -14,6 +14,9 @@ export async function action({ request }: { request: Request }) {
 }
 
 export function BlogNew() {
+  const navigation = useNavigation()
+  const navigate = useNavigate()
+
   return (
     <section>
       <div className="row">
@@ -21,38 +24,51 @@ export function BlogNew() {
       </div>
 
       <Form method="post">
-        <div className="row">
-          <label htmlFor="title" className="col-sm-2 col-form-label">
-            Title
-          </label>
-          <div className="col-sm-10">
-            <input className="form-control" type="text" name="title" />
+        <fieldset disabled={navigation.state !== 'idle'}>
+          <div className="row">
+            <label htmlFor="title" className="col-sm-2 col-form-label">
+              Title
+            </label>
+            <div className="col-sm-10">
+              <input className="form-control" type="text" name="title" />
+            </div>
           </div>
-        </div>
 
-        <div className="row mt-2">
-          <label htmlFor="body" className="col-sm-2 col-form-label">
-            Post
-          </label>
-          <div className="col-sm-10">
-            <textarea className="form-control" rows={5} name="body" />
+          <div className="row mt-2">
+            <label htmlFor="body" className="col-sm-2 col-form-label">
+              Post
+            </label>
+            <div className="col-sm-10">
+              <textarea className="form-control" rows={5} name="body" />
+            </div>
           </div>
-        </div>
 
-        <div className="row mt-2">
-          <label htmlFor="author" className="col-sm-2 col-form-label">
-            Author
-          </label>
-          <div className="col-sm-10">
-            <input className="form-control" type="text" name="author" />
+          <div className="row mt-2">
+            <label htmlFor="author" className="col-sm-2 col-form-label">
+              Author
+            </label>
+            <div className="col-sm-10">
+              <input className="form-control" type="text" name="author" />
+            </div>
           </div>
-        </div>
 
-        <div className="row mt-3">
-          <button className="btn btn-primary" type="submit">
-            Create
-          </button>
-        </div>
+          <div className="row mt-3">
+            <div className="col">
+              <button className="btn btn-primary" type="submit">
+                Create
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate(-1)
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </fieldset>
       </Form>
     </section>
   )

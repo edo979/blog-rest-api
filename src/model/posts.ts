@@ -9,6 +9,9 @@ export type Post = {
 const url = 'http://localhost:3000'
 
 export async function getPosts() {
+  // Demostration purpose
+  await timeOut()
+
   const response = await fetch(`${url}/posts`)
   const resData: Post[] = await response.json()
 
@@ -16,6 +19,9 @@ export async function getPosts() {
 }
 
 export async function getPost(id: string) {
+  // Demostration purpose
+  await timeOut()
+
   const response = await fetch(`${url}/posts/${id}`)
 
   if (!response.ok) throw new Error('Cant find that post')
@@ -29,6 +35,9 @@ export async function createPosts(data: {
   body: string
   author: string
 }): Promise<Post> {
+  // Demostration purpose
+  await timeOut()
+
   const id = Math.random().toString(36).substring(2, 9)
   const post = Object.assign(
     {
@@ -83,4 +92,8 @@ export async function deletePost(id: string) {
 
   const resData = await 'Resource Deleted'
   return resData
+}
+
+async function timeOut(): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, 1000))
 }
