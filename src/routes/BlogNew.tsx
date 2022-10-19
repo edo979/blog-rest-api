@@ -1,4 +1,5 @@
 import { Form, redirect, useNavigate, useNavigation } from 'react-router-dom'
+import { ShowServerState } from '../components/ShowServerState'
 import { createPosts } from '../model/posts'
 
 export async function action({ request }: { request: Request }) {
@@ -52,19 +53,22 @@ export function BlogNew() {
             </div>
           </div>
 
-          <div className="row mt-3">
+          <ShowServerState />
+
+          <div className="row">
             <div className="col">
-              <button className="btn btn-primary" type="submit">
-                Create
-              </button>
               <button
-                className="btn btn-secondary"
+                className="btn btn-secondary me-2"
                 onClick={(e) => {
                   e.preventDefault()
                   navigate(-1)
                 }}
               >
                 Cancel
+              </button>
+
+              <button className="btn btn-primary" type="submit">
+                Create
               </button>
             </div>
           </div>

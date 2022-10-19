@@ -4,7 +4,9 @@ import {
   redirect,
   useLoaderData,
   useNavigate,
+  useNavigation,
 } from 'react-router-dom'
+import { ShowServerState } from '../components/ShowServerState'
 import { getPost, Post, updatePost } from '../model/posts'
 
 export async function loader({ params }: { params: Params }) {
@@ -39,6 +41,7 @@ export async function action({
 export function BlogEdit() {
   const { post } = useLoaderData() as { post: Post }
   const navigate = useNavigate()
+  const navigation = useNavigation()
 
   return (
     <>
@@ -47,65 +50,69 @@ export function BlogEdit() {
       </div>
 
       <Form method="patch" className="row mt-4">
-        <div className="row">
-          <label htmlFor="title" className="col-sm-2 col-form-label">
-            Title
-          </label>
-          <div className="col-sm-10">
-            <input
-              className="form-control"
-              type="text"
-              name="title"
-              defaultValue={post.title}
-            />
+        <fieldset disabled={navigation.state === 'loading'}>
+          <div className="row">
+            <label htmlFor="title" className="col-sm-2 col-form-label">
+              Title
+            </label>
+            <div className="col-sm-10">
+              <input
+                className="form-control"
+                type="text"
+                name="title"
+                defaultValue={post.title}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="row mt-2">
-          <label htmlFor="body" className="col-sm-2 col-form-label">
-            Post
-          </label>
-          <div className="col-sm-10">
-            <textarea
-              className="form-control"
-              rows={5}
-              name="body"
-              defaultValue={post.body}
-            />
+          <div className="row mt-2">
+            <label htmlFor="body" className="col-sm-2 col-form-label">
+              Post
+            </label>
+            <div className="col-sm-10">
+              <textarea
+                className="form-control"
+                rows={5}
+                name="body"
+                defaultValue={post.body}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="row mt-2">
-          <label htmlFor="author" className="col-sm-2 col-form-label">
-            Author
-          </label>
-          <div className="col-sm-10">
-            <input
-              className="form-control"
-              type="text"
-              name="author"
-              defaultValue={post.author}
-            />
+          <div className="row mt-2">
+            <label htmlFor="author" className="col-sm-2 col-form-label">
+              Author
+            </label>
+            <div className="col-sm-10">
+              <input
+                className="form-control"
+                type="text"
+                name="author"
+                defaultValue={post.author}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="row mt-3">
-          <div className="col">
-            <button
-              className="btn btn-secondary"
-              onClick={(e) => {
-                e.preventDefault()
-                navigate(-1)
-              }}
-            >
-              Cancle
-            </button>
+          <ShowServerState />
 
-            <button className="btn btn-primary ms-2" type="submit">
-              Save
-            </button>
+          <div className="row mt-3">
+            <div className="col">
+              <button
+                className="btn btn-secondary"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate(-1)
+                }}
+              >
+                Cancle
+              </button>
+
+              <button className="btn btn-primary ms-2" type="submit">
+                Save
+              </button>
+            </div>
           </div>
-        </div>
+        </fieldset>
       </Form>
     </>
   )
