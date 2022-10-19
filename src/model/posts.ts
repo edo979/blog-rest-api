@@ -50,6 +50,27 @@ export async function createPosts(data: {
   return resData
 }
 
+export async function updatePost(
+  id: string,
+  update: {
+    title: string
+    body: string
+    author: string
+  }
+) {
+  const response = await fetch(`${url}/posts/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(update),
+  })
+
+  if (!response.ok) throw new Error('Cant update post')
+
+  return await response.json()
+}
+
 export async function deletePost(id: string) {
   const response = await fetch(`${url}/posts/${id}`, {
     method: 'DELETE',

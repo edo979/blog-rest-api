@@ -7,7 +7,11 @@ import { ErrorPage } from './routes/ErrorPage'
 import { Blog } from './routes/Blog'
 import { Blogs, loader as postsLoader } from './routes/Blogs'
 import { BlogNew, action as newBlogAction } from './routes/BlogNew'
-import { BlogEdit, loader as editPostLoader } from './routes/BlogEdit'
+import {
+  BlogEdit,
+  loader as editPostLoader,
+  action as editPostAction,
+} from './routes/BlogEdit'
 import { action as destroyAction } from './routes/BlogDestroyPost'
 import './scss/style.scss'
 
@@ -31,6 +35,7 @@ const router = createBrowserRouter([
                 path: ':postId/edit',
                 element: <BlogEdit />,
                 loader: editPostLoader,
+                action: editPostAction,
               },
               {
                 path: ':postId/destroy',

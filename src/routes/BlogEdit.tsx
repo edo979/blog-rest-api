@@ -1,5 +1,11 @@
-import { Form, Params, useLoaderData } from 'react-router-dom'
-import { getPost, Post } from '../model/posts'
+import {
+  Form,
+  Params,
+  redirect,
+  useLoaderData,
+  useNavigate,
+} from 'react-router-dom'
+import { getPost, Post, updatePost } from '../model/posts'
 
 export async function loader({ params }: { params: Params }) {
   const postId = params.postId
@@ -9,8 +15,30 @@ export async function loader({ params }: { params: Params }) {
   return { post }
 }
 
+export async function action({
+  params,
+  request,
+}: {
+  params: Params
+  request: Request
+}) {
+  const postId = params.postId
+  if (postId == undefined) throw new Error('Cant update that post')
+
+  const formData = await request.formData()
+  const update = Object.fromEntries(formData) as {
+    title: string
+    body: string
+    author: string
+  }
+
+  await updatePost(postId, update)
+  return redirect('/blog')
+}
+
 export function BlogEdit() {
-  const post = useLoaderData() as Post
+  const { post } = useLoaderData() as { post: Post }
+  const navigate = useNavigate()
 
   return (
     <>
@@ -62,9 +90,21 @@ export function BlogEdit() {
         </div>
 
         <div className="row mt-3">
-          <button className="btn btn-primary" type="submit">
-            Save
-          </button>
+          <div className="col">
+            <button
+              className="btn btn-secondary"
+              onClick={(e) => {
+                e.preventDefault()
+                navigate(-1)
+              }}
+            >
+              Cancle
+            </button>
+
+            <button className="btn btn-primary ms-2" type="submit">
+              Save
+            </button>
+          </div>
         </div>
       </Form>
     </>
