@@ -81,6 +81,9 @@ export async function updatePost(
 }
 
 export async function deletePost(id: string) {
+  // Demostration purpose
+  await timeOut()
+
   const response = await fetch(`${url}/posts/${id}`, {
     method: 'DELETE',
     headers: {
