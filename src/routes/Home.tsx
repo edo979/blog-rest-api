@@ -42,9 +42,9 @@ export function Home() {
             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div className="col p-4 d-flex flex-column position-static">
                 <strong className="d-inline-block mb-2 text-primary">
-                  {title}
+                  Featured post
                 </strong>
-                <h3 className="mb-0">Featured post</h3>
+                <h3 className="mb-0">{title}</h3>
                 <div className="mb-1 text-muted">
                   {new Date(createdAt).toLocaleDateString(undefined, {
                     day: 'numeric',
@@ -74,6 +74,22 @@ export function Home() {
           </div>
         ))}
       </div>
+
+      <section>
+        <h2 className="border-bottom my-3">Posts:</h2>
+      </section>
+
+      <section className="row">
+        <div className="col">
+          {posts.slice(2).map((post) => (
+            <>
+              <h3>{post.title}</h3>
+              <p>{limitTextTo(post.body, 150)}</p>
+            </>
+          ))}
+        </div>
+        <div className="col-md-4">about</div>
+      </section>
     </>
   )
 }
