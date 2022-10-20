@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Root } from './routes/Root'
 import { Home, loader as homeLoader } from './routes/Home'
 import { ErrorPage } from './routes/ErrorPage'
-import { Blog } from './routes/Blog'
+import { Blog, loader as postLoader } from './routes/Blog'
 import { Blogs, loader as postsLoader } from './routes/Blogs'
 import { BlogNew, action as newBlogAction } from './routes/BlogNew'
 import {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             children: [
               { index: true, element: <Blogs />, loader: postsLoader },
               { path: 'new', element: <BlogNew />, action: newBlogAction },
-              { path: ':postId', element: <Blog /> },
+              { path: ':postId', element: <Blog />, loader: postLoader },
               {
                 path: ':postId/edit',
                 element: <BlogEdit />,

@@ -17,9 +17,9 @@ export function Home() {
           <h1 className="display-4 fst-italic">{posts[0].title}</h1>
           <p className="lead my-3">{limitTextTo(posts[0].body, 150)}</p>
           <p className="lead mb-0">
-            <a href="#" className="text-white fw-bold">
+            <Link to={`blog/${posts[0].id}`} className="text-white fw-bold">
               Continue reading...
-            </a>
+            </Link>
           </p>
         </div>
       </div>
