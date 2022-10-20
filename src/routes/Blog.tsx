@@ -30,7 +30,9 @@ export function Blog() {
         <div className="col">
           <p>{post.body}</p>
         </div>
-        <div className="col">image</div>
+        <div className="col">
+          <img src={post.image} alt={post.title} />
+        </div>
       </div>
     </>
   )

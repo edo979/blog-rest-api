@@ -4,6 +4,7 @@ export type Post = {
   title: string
   body: string
   author: string
+  image: string
 }
 
 const url = 'http://localhost:3000'

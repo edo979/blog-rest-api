@@ -12,8 +12,8 @@ export function Home() {
 
   return (
     <>
-      <div className="p-4 p-md-5 mb-4 rounded text-bg-dark">
-        <div className="col-md-6 px-0">
+      <div className="row p-4 mx-0 mb-4 rounded text-bg-dark">
+        <div className="col-7">
           <h1 className="display-4 fst-italic">{posts[0].title}</h1>
           <p className="lead my-3">{limitTextTo(posts[0].body, 150)}</p>
           <p className="lead mb-0">
@@ -22,10 +22,22 @@ export function Home() {
             </Link>
           </p>
         </div>
+        <div className="col">
+          <img
+            src={posts[0].image}
+            alt={posts[0].title}
+            className="w-100"
+            style={{
+              objectPosition: 'center',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </div>
       </div>
 
       <div className="row mb-2">
-        {posts.slice(1).map(({ id, title, body, createdAt }) => (
+        {posts.slice(1).map(({ id, title, body, createdAt, image }) => (
           <div className="col-md-6" key={id}>
             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div className="col p-4 d-flex flex-column position-static">
@@ -45,23 +57,18 @@ export function Home() {
                   Continue reading
                 </Link>
               </div>
-              <div className="col-auto d-none d-lg-block">
-                <svg
-                  className="bd-placeholder-img"
-                  width="200"
-                  height="250"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Placeholder: Thumbnail"
-                  preserveAspectRatio="xMidYMid slice"
-                  focusable="false"
-                >
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c"></rect>
-                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                    Thumbnail
-                  </text>
-                </svg>
+
+              <div className="col-4">
+                <img
+                  src={image}
+                  alt={title}
+                  className="img-thumbnail"
+                  style={{
+                    objectPosition: 'center',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
               </div>
             </div>
           </div>
