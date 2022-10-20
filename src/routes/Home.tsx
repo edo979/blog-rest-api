@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from 'react-router-dom'
-import { getLatestPosts, Post } from '../model/posts'
+import { getPosts, Post } from '../model/posts'
 import { limitTextTo } from '../utilities/utility'
 
 export async function loader() {
-  const posts = await getLatestPosts('?_limit=3&_sort=createdAt&_order=desc')
+  const posts = await getPosts('?_limit=3&_sort=createdAt&_order=desc')
   return { posts }
 }
 

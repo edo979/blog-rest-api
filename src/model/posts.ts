@@ -8,11 +8,19 @@ export type Post = {
 
 const url = 'http://localhost:3000'
 
-export async function getPosts() {
+export async function getPosts(query?: string): Promise<Post[]> {
   // Demostration purpose
   await timeOut()
 
-  const response = await fetch(`${url}/posts`)
+  let response
+
+  if (query) {
+    response = await fetch(`${url}/posts${query}`)
+  } else {
+    response = await fetch(`${url}/posts`)
+  }
+
+  if (!response.ok) throw new Error('Cant get latest posts!')
   const resData: Post[] = await response.json()
 
   return resData
@@ -28,12 +36,6 @@ export async function getPost(id: string) {
 
   const resData: Post = await response.json()
   return resData
-}
-
-export async function getLatestPosts(query: string): Promise<Post[]> {
-  const res = await fetch(`${url}/posts${query}`)
-  if (!res.ok) throw new Error('Cant get latest posts!')
-  return await res.json()
 }
 
 export async function createPosts(data: {
