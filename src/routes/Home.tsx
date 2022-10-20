@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import { getLatestPosts, Post } from '../model/posts'
 import { limitTextTo } from '../utilities/utility'
 
@@ -25,7 +25,7 @@ export function Home() {
       </div>
 
       <div className="row mb-2">
-        {posts.slice(1).map(({ id, title, body }) => (
+        {posts.slice(1).map(({ id, title, body, createdAt }) => (
           <div className="col-md-6" key={id}>
             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div className="col p-4 d-flex flex-column position-static">
@@ -33,11 +33,17 @@ export function Home() {
                   {title}
                 </strong>
                 <h3 className="mb-0">Featured post</h3>
-                <div className="mb-1 text-muted">Nov 12</div>
+                <div className="mb-1 text-muted">
+                  {new Date(createdAt).toLocaleDateString(undefined, {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </div>
                 <p className="card-text mb-auto">{limitTextTo(body, 100)}</p>
-                <a href="#" className="stretched-link">
+                <Link className="stretched-link" to={`blog/${id}`}>
                   Continue reading
-                </a>
+                </Link>
               </div>
               <div className="col-auto d-none d-lg-block">
                 <svg

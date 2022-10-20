@@ -1,6 +1,6 @@
 export type Post = {
   id: string
-  createdAt?: string
+  createdAt: string
   title: string
   body: string
   author: string
