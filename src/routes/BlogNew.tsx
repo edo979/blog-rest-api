@@ -57,18 +57,18 @@ export function BlogNew() {
 
           <div className="row">
             <div className="col">
+              <button className="btn btn-primary me-2" type="submit">
+                Create
+              </button>
+
               <button
-                className="btn btn-secondary me-2"
+                className="btn btn-secondary"
                 onClick={(e) => {
                   e.preventDefault()
                   navigate(-1)
                 }}
               >
                 Cancel
-              </button>
-
-              <button className="btn btn-primary" type="submit">
-                Create
               </button>
             </div>
           </div>

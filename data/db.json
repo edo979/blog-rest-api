@@ -1,16 +1,31 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Json Server - Fake Server, amaizing",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita assumenda necessitatibus a nulla. Doloremque voluptatum aliquid quae ad tempore eaque aperiam aliquam aut dignissimos. Ut alias, illo ullam iure amet dicta totam illum deserunt tempora laboriosam repellat. Ipsum, rem laudantium!",
+      "id": "ehlxnwg",
+      "createdAt": 1666256659317,
+      "title": "Mercury ",
+      "body": "Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Wikipedia\nView on Maps: google.com/maps/space/mercury\nDistance from Sun: 58 million km\nRadius: 2,439.7 km\nSurface area: 74.8 million km²\nMass: 3.285 × 10^23 kg (0.055 M⊕)\nCoordinates: RA 12h 56m 54s | Dec -4° 0′ 10″\nApparent magnitude (V): 0.23",
       "author": "Me Atme"
     },
     {
-      "id": "l87megi",
-      "createdAt": 1666173091947,
-      "title": "New Post Edited 2",
-      "body": "some Text. Add some text again. Add more text.",
+      "id": "1pylk2i",
+      "createdAt": 1666256688500,
+      "title": "Venus ",
+      "body": "Venus is the second planet from the Sun. It is sometimes called Earth's \"sister\" or \"twin\" planet as it is almost as large and has a similar composition. Venus, like Mercury, appears in Earth's sky never far from the Sun, either as morning star or evening star with a synodic period of 1.6 years. Wikipedia\nView on Maps: google.com/maps/space/venus\nDistance from Sun: 108.2 million km\nRadius: 6,051.8 km\nSurface area: 460.2 million km²\nDensity: 5.24 g/cm³\nMass: 4.867 × 10^24 kg (0.815 M⊕)\nLength of day: 116d 18h 0m",
+      "author": "Me Atme"
+    },
+    {
+      "id": "of0hbxl",
+      "createdAt": 1666256823751,
+      "title": "Earth ",
+      "body": "Earth is the third planet from the Sun and the only astronomical object known to harbor life. While large volumes of water can be found throughout the Solar System, only Earth sustains liquid surface water. About 71% of Earth's surface is made up of the ocean, dwarfing Earth's polar ice, lakes, and rivers. Wikipedia\nAge: 4.543 billion years\nDistance from Sun: 149.6 million km\nRadius: 6,371 km\nMass: 5.972 × 10^24 kg\nSurface area: 510.1 million km²\nLand area: 148.9 million km²\nPopulation: 7.753 billion (2020) World Bank",
+      "author": "Me Atme"
+    },
+    {
+      "id": "8mw40q6",
+      "createdAt": 1666256843085,
+      "title": "Mars",
+      "body": "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In the English language, Mars is named for the Roman god of war. Wikipedia\nView on Maps: google.com/maps/space/mars\nDistance from Sun: 227.9 million km\nRadius: 3,389.5 km\nSurface area: 144.8 million km²\nMass: 6.39 × 10^23 kg (0.107 M⊕)\nDensity: 3.93 g/cm³\nMoons: Phobos, Deimos",
       "author": "Me Atme"
     }
   ]
