@@ -30,6 +30,12 @@ export async function getPost(id: string) {
   return resData
 }
 
+export async function getLatestPosts(query: string): Promise<Post[]> {
+  const res = await fetch(`${url}/posts${query}`)
+  if (!res.ok) throw new Error('Cant get latest posts!')
+  return await res.json()
+}
+
 export async function createPosts(data: {
   title: string
   body: string
