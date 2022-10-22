@@ -31,6 +31,38 @@
       "body": "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In the English language, Mars is named for the Roman god of war. Wikipedia\nView on Maps: google.com/maps/space/mars\nDistance from Sun: 227.9 million km\nRadius: 3,389.5 km\nSurface area: 144.8 million km²\nMass: 6.39 × 10^23 kg (0.107 M⊕)\nDensity: 3.93 g/cm³\nMoons: Phobos, Deimos",
       "author": "Me Atme",
       "image": "/assets/images/mars.jpg"
+    },
+    {
+      "id": "hr1fya2",
+      "createdAt": 1666418978798,
+      "title": "Jupiter",
+      "body": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined, but slightly less than one-thousandth the mass of the Sun. Wikipedia\nDistance from Sun: 778.5 million km\nRadius: 69,911 km\nSurface area: 61.42 billion km²\nMass: 1.898 × 10^27 kg (317.8 M⊕)\nDensity: 1.33 g/cm³\nAge: 4.603 billion years\nMoons: Europa, Io, Ganymede, Callisto, Amalthea, Adrastea, MORE",
+      "author": "Me Atme",
+      "image": "/assets/images/jupiter.jpg"
+    },
+    {
+      "id": "4bheno6",
+      "createdAt": 1666419009247,
+      "title": "Saturn",
+      "body": "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine and a half times that of Earth. It has only one-eighth the average density of Earth; however, with its larger volume, Saturn is over 95 times more massive. Wikipedia\nDistance from Sun: 1.434 billion km\nRadius: 58,232 km\nSurface area: 42.7 billion km²\nMass: 5.683 × 10^26 kg (95.16 M⊕)\nDensity: 687 kg/m³\nAge: 4.503 billion years\nMoons: Titan, Enceladus, Mimas, Dione, Iapetus, Tethys, Hyperion, MORE",
+      "author": "Me Atme",
+      "image": "/assets/images/saturn.jpg"
+    },
+    {
+      "id": "w67ef37",
+      "createdAt": 1666419032715,
+      "title": "Uranus",
+      "body": "Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky, Uranus, who, according to Greek mythology, was the great-grandfather of Ares, grandfather of Zeus and father of Cronus. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Wikipedia\nDistance from Sun: 2.871 billion km\nOrbital period: 84 years\nRadius: 25,362 km\nSurface area: 8.083 billion km²\nMass: 8.681 × 10^25 kg (14.54 M⊕)\nDensity: 1.27 g/cm³\nMoons: Miranda, Titania, Oberon, Ariel, Umbriel, Puck, Cressida, MORE",
+      "author": "Me Atme",
+      "image": "/assets/images/uranus.jpg"
+    },
+    {
+      "id": "g4666v3",
+      "createdAt": 1666419055565,
+      "title": "Neptun",
+      "body": "Neptune is the eighth planet from the Sun and the farthest known solar planet. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. It is 17 times the mass of Earth, and slightly more massive than its near-twin Uranus. Wikipedia\nDistance from Sun: 4.495 billion km\nOrbital period: 165 years\nRadius: 24,622 km\nSurface area: 7.618 billion km²\nLength of day: 0d 16h 6m\nMass: 1.024 × 10^26 kg (17.15 M⊕)\nMoons: Triton, Thalassa, Hippocamp, Nereid, Galatea, Despina, MORE",
+      "author": "Me Atme",
+      "image": "/assets/images/neptune.jpg"
     }
   ]
 }

@@ -3,7 +3,7 @@ import { getPosts, Post } from '../model/posts'
 import { limitTextTo } from '../utilities/utility'
 
 export async function loader() {
-  const posts = await getPosts('?_limit=3&_sort=createdAt&_order=desc')
+  const posts = await getPosts('?_limit=8&_sort=createdAt&_order=desc')
   return { posts }
 }
 
@@ -37,7 +37,7 @@ export function Home() {
       </div>
 
       <div className="row mb-2">
-        {posts.slice(1).map(({ id, title, body, createdAt, image }) => (
+        {posts.slice(1, 3).map(({ id, title, body, createdAt, image }) => (
           <div className="col-md-6" key={id}>
             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div className="col p-4 d-flex flex-column position-static">
@@ -81,10 +81,14 @@ export function Home() {
 
       <section className="row">
         <div className="col">
-          {posts.slice(2).map((post) => (
+          {posts.slice(3).map((post) => (
             <>
               <h3>{post.title}</h3>
-              <p>{limitTextTo(post.body, 150)}</p>
+              <p>{limitTextTo(post.body, 250)}</p>
+              <p className="text-end">
+                <span className="fw-bold">Author: </span>
+                <span>{post.author}</span>
+              </p>
             </>
           ))}
         </div>

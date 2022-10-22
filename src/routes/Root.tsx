@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import { Footer } from '../components/footer'
 import { MainNav } from '../components/MainNav'
 
 export function Root() {
@@ -7,6 +8,8 @@ export function Root() {
       <MainNav />
 
       <Outlet />
+
+      <Footer />
     </div>
   )
 }
