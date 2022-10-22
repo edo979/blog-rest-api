@@ -82,17 +82,40 @@ export function Home() {
       <section className="row">
         <div className="col">
           {posts.slice(3).map((post) => (
-            <>
+            <article key={post.id}>
               <h3>{post.title}</h3>
               <p>{limitTextTo(post.body, 250)}</p>
               <p className="text-end">
                 <span className="fw-bold">Author: </span>
                 <span>{post.author}</span>
               </p>
-            </>
+            </article>
           ))}
         </div>
-        <div className="col-md-4">about</div>
+        <div className="col-md-4">
+          <div className="position-sticky" style={{ top: '2rem' }}>
+            <div className="p-4 mb-3 bg-light rounded">
+              <h4>About</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                aliquid dignissimos atque maxime, error consequatur harum
+                veritatis dolore cumque quisquam ducimus veniam qui alias iste
+                ipsam porro delectus.
+              </p>
+            </div>
+
+            <section>
+              Latest:
+              <ul className="list-group">
+                {posts.slice(0, 5).map((post) => (
+                  <li key={post.title} className="list-group-item">
+                    <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </div>
       </section>
     </>
   )
